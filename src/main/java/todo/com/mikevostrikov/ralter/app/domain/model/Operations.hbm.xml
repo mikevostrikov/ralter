@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28.03.2009 2:16:54 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.mikevostrikov.ralter.model.Operations" schema="VOSTRIKOVMIHAIL" table="OPERATIONS">
+    <id name="opId" type="long">
+      <column name="OP_ID" precision="22" scale="0"/>
+      <generator class="sequence">
+        <param name="sequence">S_OP</param>
+      </generator>
+    </id>
+    <property name="opName" type="string">
+      <column length="30" name="OP_NAME"/>
+    </property>
+    <property name="opDescription" type="string">
+      <column length="30" name="OP_DESCRIPTION"/>
+    </property>
+    <property name="opDuration" type="java.lang.Double">
+      <column name="OP_DURATION" precision="63" scale="0"/>
+    </property>
+    <property name="opComplexity" type="string">
+      <column length="30" name="OP_COMPLEXITY"/>
+    </property>
+    <property name="opComment" type="string">
+      <column length="30" name="OP_COMMENT"/>
+    </property>
+    <set cascade="all-delete-orphan" inverse="true" name="suops">
+      <key>
+        <column name="SUOP_OP_ID" precision="22" scale="0"/>
+      </key>
+      <one-to-many class="com.mikevostrikov.ralter.model.Suop"/>
+    </set>
+    <set inverse="true" name="logs">
+      <key>
+        <column name="LO_OP_ID" precision="22" scale="0"/>
+      </key>
+      <one-to-many class="com.mikevostrikov.ralter.model.Log"/>
+    </set>
+    <many-to-one class="com.mikevostrikov.ralter.model.Operations" column="OP_NEXT_ID" name="nextOperation" unique="true"/>
+    <set inverse="true" name="prevOperation">
+      <key>
+        <column name="OP_NEXT_ID" precision="22" scale="0"/>
+      </key>
+      <one-to-many class="com.mikevostrikov.ralter.model.Operations"/>
+    </set>
+    <set cascade="all-delete-orphan" inverse="true" name="doops">
+      <key>
+        <column name="DOOP_OP_ID" precision="22" scale="0"/>
+      </key>
+      <one-to-many class="com.mikevostrikov.ralter.model.Doop"/>
+    </set>
+    <set inverse="true" name="equipments">
+      <key>
+        <column name="EQ_OP_ID" precision="22" scale="0"/>
+      </key>
+      <one-to-many class="com.mikevostrikov.ralter.model.Equipment"/>
+    </set>
+    <set cascade="all-delete-orphan" inverse="true" name="coops">
+      <key>
+        <column name="COOP_OP_ID" precision="22" scale="0"/>
+      </key>
+      <one-to-many class="com.mikevostrikov.ralter.model.Coop"/>
+    </set>
+  </class>
+</hibernate-mapping>

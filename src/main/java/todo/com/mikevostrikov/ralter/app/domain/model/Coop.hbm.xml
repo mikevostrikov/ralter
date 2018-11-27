@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28.03.2009 2:16:54 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.mikevostrikov.ralter.model.Coop" schema="VOSTRIKOVMIHAIL" table="COOP">
+    <id name="coopId" type="long">
+      <column name="COOP_ID" precision="22" scale="0"/>
+      <generator class="sequence">
+        <param name="sequence">S_COOP</param>
+      </generator>
+    </id>
+    <many-to-one class="com.mikevostrikov.ralter.model.Operations" fetch="select" name="operations">
+      <column name="COOP_OP_ID" precision="22" scale="0"/>
+    </many-to-one>
+    <many-to-one class="com.mikevostrikov.ralter.model.Components" fetch="select" name="components">
+      <column name="COOP_CO_ID" precision="22" scale="0"/>
+    </many-to-one>
+    <property name="coopQuantity" type="long">
+      <column name="COOP_QUANTITY" precision="22" scale="0"/>
+    </property>
+  </class>
+</hibernate-mapping>

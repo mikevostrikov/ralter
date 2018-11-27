@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28.03.2009 2:16:54 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.mikevostrikov.ralter.model.Components" schema="VOSTRIKOVMIHAIL" table="COMPONENTS">
+    <id name="coId" type="long">
+      <column name="CO_ID" precision="22" scale="0"/>
+      <generator class="sequence">
+        <param name="sequence">S_CO</param>
+      </generator>
+    </id>
+    <property name="coName" type="string">
+      <column length="30" name="CO_NAME"/>
+    </property>
+    <property name="coQuantity" type="long">
+      <column name="CO_QUANTITY" precision="22" scale="0"/>
+    </property>
+    <property name="coManufacturer" type="string">
+      <column length="30" name="CO_MANUFACTURER"/>
+    </property>
+    <property name="coDate" type="date">
+      <column length="7" name="CO_DATE"/>
+    </property>
+    <set inverse="true" name="coops">
+      <key>
+        <column name="COOP_CO_ID" precision="22" scale="0"/>
+      </key>
+      <one-to-many class="com.mikevostrikov.ralter.model.Coop"/>
+    </set>
+  </class>
+</hibernate-mapping>

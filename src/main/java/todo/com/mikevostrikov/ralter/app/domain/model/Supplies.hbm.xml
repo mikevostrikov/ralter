@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28.03.2009 2:16:54 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.mikevostrikov.ralter.model.Supplies" schema="VOSTRIKOVMIHAIL" table="SUPPLIES">
+    <id name="suId" type="long">
+      <column name="SU_ID" precision="22" scale="0"/>
+      <generator class="sequence">
+        <param name="sequence">S_SU</param>
+      </generator>
+    </id>
+    <property name="suName" type="string">
+      <column length="30" name="SU_NAME"/>
+    </property>
+    <property name="suQuantity" type="java.lang.Double">
+      <column name="SU_QUANTITY" precision="63" scale="0"/>
+    </property>
+    <property name="suMeasure" type="string">
+      <column length="30" name="SU_MEASURE"/>
+    </property>
+    <property name="suComment" type="string">
+      <column length="30" name="SU_COMMENT"/>
+    </property>
+    <property name="suManufacturer" type="string">
+      <column length="30" name="SU_MANUFACTURER"/>
+    </property>
+    <property name="suPrice" type="java.lang.Double">
+      <column name="SU_PRICE" precision="63" scale="0"/>
+    </property>
+    <set cascade="all-delete-orphan" inverse="true" name="suops">
+      <key>
+        <column name="SUOP_SU_ID" precision="22" scale="0"/>
+      </key>
+      <one-to-many class="com.mikevostrikov.ralter.model.Suop"/>
+    </set>
+  </class>
+</hibernate-mapping>

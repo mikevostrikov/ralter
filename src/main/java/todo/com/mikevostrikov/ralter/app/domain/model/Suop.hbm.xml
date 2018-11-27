@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28.03.2009 2:16:54 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.mikevostrikov.ralter.model.Suop" schema="VOSTRIKOVMIHAIL" table="SUOP">
+    <id name="suopId" type="long">
+      <column name="SUOP_ID" precision="22" scale="0"/>
+      <generator class="sequence">
+        <param name="sequence">S_SUOP</param>
+      </generator>
+    </id>
+    <many-to-one class="com.mikevostrikov.ralter.model.Supplies" fetch="select" name="supplies">
+      <column name="SUOP_SU_ID" precision="22" scale="0"/>
+    </many-to-one>
+    <many-to-one class="com.mikevostrikov.ralter.model.Operations" fetch="select" name="operations">
+      <column name="SUOP_OP_ID" precision="22" scale="0"/>
+    </many-to-one>
+    <property name="suopQuantity" type="java.lang.Double">
+      <column name="SUOP_QUANTITY" precision="63" scale="0"/>
+    </property>
+  </class>
+</hibernate-mapping>

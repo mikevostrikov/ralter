@@ -1,0 +1,97 @@
+/* 
+    Document   : style
+    Created on : 15.04.2009, 1:39:37
+    Author     : Mike V
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+table {
+    border-collapse: collapse;
+    border-color: gray;
+}
+
+td {
+    border-color: gray;
+}
+
+th {
+    border-color: gray;
+    background-color: #000099;
+    color: #FFFFDA;
+}
+
+a:link {
+    color: #0066DE;
+}
+
+a:visited {
+    color: #0066DE;
+}
+
+a:active {
+    color: #0066DE;
+}
+
+a:hover {
+    color: #0066DA;
+}
+
+.navlink:link {
+    color: black;
+    text-decoration: none;
+}
+
+.navlink:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.navlink:active {
+    color: black;
+    text-decoration: none;
+}
+
+.navlink:hover {
+    color: #FF9960;
+    text-decoration: underline;
+}
+
+h2 {
+    padding-top: 50px;
+}
+
+.mtable {
+    width: 90%;
+    empty-cells: show;
+}
+
+.shtable{
+    width: 70%;
+    empty-cells: show;
+}
+
+.navleft {
+    background: url(/pics/leftbg.png) repeat-x;
+    width: 150px;
+    vertical-align: top;
+    padding-left: 20px;
+    padding-top: 30px;
+}
+
+select {
+    width: 200px;
+}
+
+input {
+    width: 200px;
+}

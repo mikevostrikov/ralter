@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28.03.2009 2:16:54 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.mikevostrikov.ralter.model.Equipment" schema="VOSTRIKOVMIHAIL" table="EQUIPMENT">
+    <id name="eqId" type="long">
+      <column name="EQ_ID" precision="22" scale="0"/>
+      <generator class="sequence">
+        <param name="sequence">S_EQ</param>
+      </generator>
+    </id>
+    <many-to-one class="com.mikevostrikov.ralter.model.Operations" fetch="select" name="operations">
+      <column name="EQ_OP_ID" precision="22" scale="0"/>
+    </many-to-one>
+    <property name="eqManufacturer" type="string">
+      <column length="30" name="EQ_MANUFACTURER"/>
+    </property>
+    <property name="eqComment" type="string">
+      <column length="30" name="EQ_COMMENT"/>
+    </property>
+    <property name="eqName" type="string">
+      <column length="100" name="EQ_NAME"/>
+    </property>
+  </class>
+</hibernate-mapping>

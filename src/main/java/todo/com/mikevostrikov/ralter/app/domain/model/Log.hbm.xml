@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28.03.2009 2:16:54 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.mikevostrikov.ralter.model.Log" schema="VOSTRIKOVMIHAIL" table="LOG">
+    <id name="loId" type="long">
+      <column name="LO_ID" precision="22" scale="0"/>
+      <generator class="sequence">
+        <param name="sequence">S_LO</param>
+      </generator>
+    </id>
+    <many-to-one class="com.mikevostrikov.ralter.model.Employee" fetch="select" name="employee">
+      <column name="EMPLOYEE_ID" precision="22" scale="0"/>
+    </many-to-one>
+    <many-to-one class="com.mikevostrikov.ralter.model.Operations" fetch="select" name="operations">
+      <column name="LO_OP_ID" precision="22" scale="0"/>
+    </many-to-one>
+    <many-to-one class="com.mikevostrikov.ralter.model.Products" fetch="select" name="products">
+      <column name="LO_PR_ID" precision="22" scale="0"/>
+    </many-to-one>
+    <property name="loTimedate" type="timestamp">
+      <column name="LO_TIMEDATE"/>
+    </property>
+    <property name="loComment" type="string">
+      <column length="30" name="LO_COMMENT"/>
+    </property>
+    <property name="loErr" type="string">
+      <column length="1" name="LO_ERR"/>
+    </property>
+  </class>
+</hibernate-mapping>

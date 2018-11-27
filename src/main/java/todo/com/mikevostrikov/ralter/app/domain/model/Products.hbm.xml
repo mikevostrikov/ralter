@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28.03.2009 2:16:54 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.mikevostrikov.ralter.model.Products" schema="VOSTRIKOVMIHAIL" table="PRODUCTS">
+    <id name="prId" type="long">
+      <column name="PR_ID" precision="22" scale="0"/>
+      <generator class="sequence">
+        <param name="sequence">S_PR</param>
+      </generator>
+    </id>
+    <property name="prPassport" type="string">
+      <column length="30" name="PR_PASSPORT"/>
+    </property>
+    <property name="prComment" type="string">
+      <column length="30" name="PR_COMMENT"/>
+    </property>
+    <property name="prDate" type="date">
+      <column length="7" name="PR_DATE"/>
+    </property>
+    <property name="prGoden" type="string">
+      <column length="1" name="PR_GODEN"/>
+    </property>
+    <set inverse="true" name="logs">
+      <key>
+        <column name="LO_PR_ID" precision="22" scale="0"/>
+      </key>
+      <one-to-many class="com.mikevostrikov.ralter.model.Log"/>
+    </set>
+  </class>
+</hibernate-mapping>

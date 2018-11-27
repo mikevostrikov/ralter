@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28.03.2009 2:16:54 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.mikevostrikov.ralter.model.Rowe" schema="VOSTRIKOVMIHAIL" table="ROWE">
+    <id name="roweId" type="long">
+      <column name="ROWE_ID" precision="22" scale="0"/>
+      <generator class="sequence">
+        <param name="sequence">S_ROWE</param>
+      </generator>
+    </id>
+    <many-to-one class="com.mikevostrikov.ralter.model.Webres" fetch="select" name="webres">
+      <column name="ROWE_WE_ID" precision="22" scale="0"/>
+    </many-to-one>
+    <many-to-one class="com.mikevostrikov.ralter.model.Roles" fetch="select" name="roles">
+      <column name="ROWE_RO_ID" precision="22" scale="0"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>
